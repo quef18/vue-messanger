@@ -5,11 +5,41 @@
     <link rel="icon" type="image/svg+xml" href="/vue-messanger/assets/vite-4a748afd.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Vue + TS</title>
-    <script type="module" crossorigin src="/vue-messanger/assets/index-121e8756.js"></script>
-    <link rel="stylesheet" href="/vue-messanger/assets/index-4e0d2b33.css">
+    <script type="module" crossorigin src="/vue-messanger/assets/index-12169dd9.js"></script>
+    <link rel="stylesheet" href="/vue-messanger/assets/index-7d1dbad5.css">
   </head>
   <body>
     <div id="app"></div>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "166086349913639");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v18.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
     
   </body>
 </html>
